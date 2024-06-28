@@ -1,2 +1,4 @@
-# HomeSwap-
-An Airbnb clone website 
+Creating the react+node framework.
+
+Creating Authentication using AWS Cognito
+
