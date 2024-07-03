@@ -8,7 +8,7 @@ import RegisterPage from './components/auth/RegisterPage';
 
 function App() {
   return (
-    <div>
+    <div className='w-screen h-screen'>
       <SiteNav />
       <Routes>
         <Route path="*" element={<HomePage />} />
