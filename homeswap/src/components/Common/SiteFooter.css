@@ -1,0 +1,35 @@
+/* Footer styles */
+.custom-footer {
+    background-color: #f56582; /* Dark background color */
+    color: #fff; /* White text color */
+    font-size: 14px;
+    padding: 20px 0;
+}
+
+.custom-footer p {
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+
+.custom-footer ul.list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 10px; /* Optional: Adjust margin */
+}
+
+.custom-footer ul.list-inline li {
+    display: inline-block;
+    margin-right: 15px; /* Adjust spacing between items */
+}
+
+.custom-footer ul.list-inline li:last-child {
+    margin-right: 0; /* Remove margin for the last item */
+}
+
+.custom-footer ul.list-inline li a {
+    color: #fff; /* White link color */
+    text-decoration: none;
+}
+
+.custom-footer ul.list-inline li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

@@ -1,0 +1,71 @@
+.auth-wrapper {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background-color: #f2f2f2; /* Added background color for the entire viewport */
+}
+
+.auth-inner {
+width: 400px;
+padding: 30px;
+background: #f7f7f7;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+text-align: center;
+}
+
+h3 {
+margin-bottom: 20px;
+font-weight: 500;
+color: #333; /* Changed heading color for better readability */
+}
+
+.form-group {
+margin-bottom: 20px; /* Increased margin for better spacing */
+text-align: left;
+}
+
+.form-group label {
+margin-bottom: 5px;
+display: block;
+color: #555; /* Changed label color for better contrast */
+}
+
+.form-control {
+height: 40px;
+border-radius: 5px;
+padding: 10px;
+border: 1px solid #ccc;
+width: 100%; /* Ensured form controls take full width */
+box-sizing: border-box; /* Ensured padding is included in width */
+}
+
+.btn-block {
+width: 100%;
+padding: 10px;
+border: none;
+border-radius: 5px;
+background-color: #f37a69;
+color: #fff;
+cursor: pointer;
+margin-top: 20px; /* Added margin top for spacing */
+}
+
+.btn-block:hover {
+background-color: #f05c4e;
+}
+
+.forgot-password {
+margin-top: 15px;
+font-size: 14px; /* Adjusted font size for better readability */
+}
+
+.forgot-password a {
+color: #f37a69;
+text-decoration: none; /* Removed underline from links */
+}
+
+.forgot-password a:hover {
+color: #f05c4e;
+}
