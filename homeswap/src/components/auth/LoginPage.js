@@ -13,6 +13,7 @@ const SignIn = () => {
     try {
       await Auth.signIn(email, password);
       navigate('/');
+      window.location.reload()
     } catch (error) {
       console.log('error signing in', error);
     }

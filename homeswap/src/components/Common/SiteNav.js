@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { Auth } from 'aws-amplify'; // Import Auth from aws-amplify
+import { Auth } from 'aws-amplify';
 import './SiteNav.css';
 
-function SiteNav({ user, logOut }) {
+function SiteNav({ logOut }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [email, setEmail] = useState('');
+  const [shouldReload, setShouldReload] = useState(true); // State to control reloading
+
+  useEffect(() => {
+    const checkAuthState = async () => {
+      try {
+        const currentUser = await Auth.currentAuthenticatedUser();
+        setIsAuthenticated(true);
+        setEmail(currentUser.attributes.email);
+      } catch (error) {
+        setIsAuthenticated(false);
+        setEmail('');
+      }
+    };
+
+    checkAuthState(); // Check auth state when component mounts
+  }); 
   const handleLogout = async () => {
     await logOut(); // Call logOut function passed from props
+    setIsAuthenticated(false); // Update auth state on logout
+    setShouldReload(true); // Allow reload on next login
   };
 
   return (
@@ -30,8 +50,9 @@ function SiteNav({ user, logOut }) {
               <Nav.Link as={Link} to="/experiences">Experiences</Nav.Link>
               <Nav.Link as={Link} to="/airbnb-your-home">Airbnb Your Home</Nav.Link>
               {/* Conditional rendering based on user's authentication status */}
-              {user ? (
+              {isAuthenticated ? (
                 <>
+                  <Nav.Link>Hello, {email}</Nav.Link>
                   <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                 </>
               ) : (
