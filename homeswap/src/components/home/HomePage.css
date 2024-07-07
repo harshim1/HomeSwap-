@@ -1,106 +1,136 @@
-.airbnb-clone-page {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-  }
-  
-  .navbar {
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-brand {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #333;
-  }
-  
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333 !important;
-    margin-right: 15px;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #f56582 !important;
-  }
-  
-  .hero {
-    background-color: #f7f7f7;
-    padding: 80px 0;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .hero-btn {
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-  
-  .search-section {
-    background-color: #fff;
-    padding: 60px 0;
-  }
-  
-  .search-bar {
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-  }
-  
-  .search-bar .form-control {
-    font-size: 1rem;
-  }
-  
-  .search-bar .btn {
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-  
-  .search-btn {
-    background-color: #f56582;
-    border-color: #f56582;
-  }
-  
-  .search-btn:hover {
-    background-color: #e2546b;
-    border-color: #e2546b;
-  }
-  
-  .popular-locations {
-    padding: 60px 0;
-  }
-  
-  .location-link {
-    display: block;
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.2s ease-in-out;
-    text-align: center;
-  }
-  
-  .location-link:hover {
-    transform: translateY(-5px);
-  }
-  
-  .location-name {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-  
-  /* Ensure images are uniformly styled */
-  .location-image {
-    width: 100%; /* Ensure images fill their container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners */
-  }
-  
+/* HomePage.css */
+
+/* Hero Section */
+.hero {
+background-color: #f8f9fa;
+padding: 100px 0;
+text-align: center;
+}
+
+.hero-image-col{
+  margin-top: 20px;
+}
+
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 20px;
+}
+
+.hero p {
+font-size: 1.2rem;
+color: #6c757d;
+margin-bottom: 30px;
+}
+
+.hero-btn {
+font-size: 1.2rem;
+}
+
+/* Search Section */
+.search-section {
+background-color: #ffffff;
+border-bottom: 1px solid #dee2e6;
+}
+
+.search-bar {
+border: 2px solid #ffc107;
+border-radius: 5px;
+box-shadow: none;
+}
+
+.search-bar .form-control {
+border: none;
+border-right: none;
+border-radius: 5px 0 0 5px;
+}
+
+.search-bar .btn {
+border: none;
+border-left: none;
+border-radius: 0 5px 5px 0;
+}
+
+.search-bar .input-group-text {
+background-color: #ffc107;
+color: #212529;
+border: none;
+}
+
+.search-btn {
+font-size: 1.2rem;
+}
+
+.discover-more a {
+color: #ffc107;
+text-decoration: none;
+margin-right: 10px;
+}
+
+.discover-more a:hover {
+text-decoration: underline;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+background-color: #f8f9fa;
+padding: 50px 0;
+}
+
+.why-choose-us h2 {
+font-size: 2.5rem;
+text-align: center;
+margin-bottom: 50px;
+}
+
+.why-choose-us .col-md-4 {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.why-choose-us .fs-2 {
+color: #ffc107;
+}
+
+/* Popular Locations Section */
+.popular-locations {
+background-color: #ffffff;
+padding: 50px 0;
+}
+
+.location-link {
+text-decoration: none;
+color: #212529;
+transition: transform 0.3s ease-in-out;
+}
+
+.location-link:hover {
+transform: translateY(-5px);
+}
+
+.location-image {
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.location-name {
+font-size: 1.5rem;
+text-align: center;
+margin-top: 10px;
+}
+
+/* Call to Action Section */
+.call-to-action {
+background-color: #ffc107;
+color: #212529;
+padding: 100px 0;
+}
+
+.call-to-action h2 {
+font-size: 3rem;
+margin-bottom: 30px;
+}
+
+.call-to-action-btn {
+font-size: 1.5rem;
+padding: 15px 50px;
+}

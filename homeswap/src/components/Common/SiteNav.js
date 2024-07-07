@@ -9,8 +9,7 @@ import './SiteNav.css';
 function SiteNav({ logOut }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState('');
-  const [shouldReload, setShouldReload] = useState(true); // State to control reloading
-
+  const [shouldReload, setShouldReload] = useState(true); 
   useEffect(() => {
     const checkAuthState = async () => {
       try {
@@ -23,12 +22,12 @@ function SiteNav({ logOut }) {
       }
     };
 
-    checkAuthState(); // Check auth state when component mounts
+    checkAuthState(); 
   }); 
   const handleLogout = async () => {
-    await logOut(); // Call logOut function passed from props
-    setIsAuthenticated(false); // Update auth state on logout
-    setShouldReload(true); // Allow reload on next login
+    await logOut(); 
+    setIsAuthenticated(false); 
+    setShouldReload(true);
   };
 
   return (
@@ -38,8 +37,8 @@ function SiteNav({ logOut }) {
           <Navbar.Brand as={Link} to="/">
             <img
               src="./download.png"
-              width="150"
-              height="50"
+              width="250"
+              height="100"
               alt="Airbnb Logo"
             />
           </Navbar.Brand>
@@ -48,8 +47,7 @@ function SiteNav({ logOut }) {
             <Nav className="ms-md-auto">
               <Nav.Link as={Link} to="/stays">Stays</Nav.Link>
               <Nav.Link as={Link} to="/experiences">Experiences</Nav.Link>
-              <Nav.Link as={Link} to="/airbnb-your-home">Airbnb Your Home</Nav.Link>
-              {/* Conditional rendering based on user's authentication status */}
+              <Nav.Link as={Link} to="/airbnb-your-home">Your Home</Nav.Link>
               {isAuthenticated ? (
                 <>
                   <Nav.Link>Hello, {email}</Nav.Link>

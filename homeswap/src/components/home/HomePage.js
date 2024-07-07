@@ -1,26 +1,28 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import Dropdown from 'react-bootstrap/Dropdown';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { signOut } from "aws-amplify/auth"
-
+import { Container, Row, Col, Image, InputGroup, FormControl, Dropdown } from 'react-bootstrap';
 
 function HomePage() {
-  return (
-    
-    <div className="airbnb-clone-page">
+  const [popularLocations, setPopularLocations] = useState([]);
 
+  useEffect(() => {
+    const fetchPopularLocations = async () => {
+      const response = await fetch('/api/popular-locations');
+      const data = await response.json();
+      setPopularLocations(data);
+    };
+
+    fetchPopularLocations();
+  }, []);
+
+  return (
+    <div className="homeswap-homepage">
       <header className="hero">
         <Container className="hero-content">
           <Row className="align-items-center">
             <Col md={6} className="hero-text-col">
-              <h1>Live anywhere and everywhere.</h1>
-              <p>City breaks to beach retreats, countryside escapes to overseas adventures.</p>
+              <h1>Discover Unique Homes Around the World</h1>
+              <p>Join HomeSwap and explore new destinations while experiencing the comfort of home.</p>
               <Link to="/search" className="btn btn-warning hero-btn">
                 Explore Homes
               </Link>
@@ -29,9 +31,8 @@ function HomePage() {
               <Image
                 src="./hero.png"
                 alt="Hero Image"
-                fluid
-                width="1200"
-                height="1000"
+                width="850"
+                height="550"
               />
             </Col>
           </Row>
@@ -79,36 +80,9 @@ function HomePage() {
         </Container>
       </section>
 
-      <section className="popular-locations py-5">
-        <Container>
-          <h2>Explore Popular Locations</h2>
-          <Row className="justify-content-center">
-            <Col sm={4} className="mb-3">
-              <Link to="/locations/paris" className="location-link d-block">
-                <Image src="paris.jpg" alt="Paris" rounded fluid className="location-image" />
-                <p className="location-name mt-2">Paris</p>
-              </Link>
-            </Col>
-            <Col sm={4} className="mb-3">
-              <Link to="/locations/tokyo" className="location-link d-block">
-                <Image src="tokyo.jpg" alt="Tokyo" rounded fluid className="location-image" />
-                <p className="location-name mt-2">Tokyo</p>
-              </Link>
-            </Col>
-            <Col sm={4} className="mb-3">
-              <Link to="/locations/venice" className="location-link d-block">
-                <Image src="venice.jpg" alt="Venice" rounded fluid className="location-image" />
-                <p className="location-name mt-2">Venice</p>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
       <section className="why-choose-us py-5">
         <Container>
-          <h2>Why Choose Airbnb?</h2>
-          <br></br>
+          <h2>Why Choose HomeSwap?</h2>
           <Row>
             <Col md={4}>
               <i className="bi bi-key text-warning fs-2 mb-3"></i>
@@ -129,9 +103,25 @@ function HomePage() {
         </Container>
       </section>
 
+      <section className="popular-locations py-5">
+        <Container>
+          <h2>Explore Popular Locations</h2>
+          <Row className="justify-content-center">
+            {popularLocations.map((location, index) => (
+              <Col sm={4} key={index} className="mb-3">
+                <Link to={`/locations/${location.slug}`} className="location-link d-block">
+                  <Image src={location.image} alt={location.name} rounded fluid className="location-image" />
+                  <p className="location-name mt-2">{location.name}</p>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
       <section className="call-to-action text-center py-5">
         <Container>
-          <h2>Ready to start your adventure?</h2>
+          <h2>Ready to Start Your Adventure?</h2>
           <Link to="/search" className="btn btn-warning call-to-action-btn">
             Explore Homes
           </Link>
